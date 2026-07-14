@@ -1,0 +1,82 @@
+/src/main/resources/application-dev.yml
+src/main/resources/application-dev.yml
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - NetBeans
+nbproject/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Application
+*.log
+logs/
+
+# Kafka local data (if any)
+kafka-logs/
+zookeeper/
+
+# Environment variables
+.env
+.env.local.env
+.venv
+
+# Python
+python-ml/.venv/
+python-ml/__pycache__/
+python-ml/**/__pycache__/
+python-ml/**/*.pyc
+python-ml/.env
+
+# ML models (too large for git, use MLflow instead)
+python-ml/models/*.pkl
+python-ml/models/*.keras
+python-ml/models/*.json
+
+# ChromaDB local vector store
+python-ml/chroma_db/
+
+# MLflow local runs
+python-ml/mlruns/
+/python-ml/LICENSE.txt
+python-ml/pyvenv.cfg
+python-ml/bin
+python-ml/lib
+python-ml/include
+python-ml/LICENSE.txt
+python-ml/etc
+python-ml/lib64
+python-ml/share
