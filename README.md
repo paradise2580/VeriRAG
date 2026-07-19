@@ -161,6 +161,33 @@ python -m api.server  # http://localhost:8000
 Java controllers (`FraudDetectionController`, `ConversationalController`) proxy to these endpoints via `RestTemplate`.
 
 ---
+## Offline Evaluation (PaySim Benchmark)
+
+[#offline-evaluation-paysim-benchmark](#offline-evaluation-paysim-benchmark)
+
+To validate the XGBoost model itself (separate from the live agent pipeline), it was trained and evaluated offline on the [PaySim](https://www.kaggle.com/datasets/ealaxi/paysim1) synthetic mobile-money fraud dataset — 6.36M transactions, 0.13% fraud rate, stratified 80/20 train/test split.
+
+| Metric | Value |
+|---|---|
+| Precision (fraud) | 0.8757 |
+| Recall (fraud) | 0.9945 |
+| F1-score (fraud) | 0.9313 |
+| ROC-AUC | 0.9998 |
+| PR-AUC | 0.9932 |
+
+**Confusion matrix** (test set, 1,272,524 transactions):
+
+|  | Predicted: not fraud | Predicted: fraud |
+|---|---|---|
+| **Actual: not fraud** | 1,270,649 | 232 |
+| **Actual: fraud** | 9 | 1,634 |
+
+The model catches 99.45% of fraud in the test set (9 missed out of 1,643), at a false-positive cost of 232 legitimate transactions flagged incorrectly.
+
+![ROC Curve](python-ml/training/roc_curve.png)
+![Precision-Recall Curve](python-ml/training/pr_curve.png)
+
+**Note on interpretation:** PaySim's fraud transactions follow synthetically distinct patterns (specific transaction types combined with balance-draining behavior), which makes them easier to separate than real-world fraud. These metrics validate the model's mechanics — feature engineering, class-imbalance handling, threshold behavior — rather than guaranteeing equivalent performance on production data.
 
 ## RAG Pipeline (ChromaDB + sentence-transformers)
 
