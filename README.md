@@ -621,4 +621,4 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 - [LinkedIn](https://www.linkedin.com/in/anshivya-nagpal-18a75b315/?skipRedirect=true)
 
-**Built for the Kafka + AI community — give it a ⭐ if it helps you**
+**Built for the Kafka + AI community with love, by Anshivya Nagpal **
